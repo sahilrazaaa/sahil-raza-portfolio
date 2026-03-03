@@ -28,7 +28,7 @@ export function Home() {
         transition={{ delay: 0.25, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         className="space-y-6 max-w-2xl"
       >
-        <p className="font-light text-lg text-white/70 leading-relaxed">
+        <p className="font-serif text-xl md:text-2xl text-white/80 leading-relaxed italic">
           Welcome to my personal corner of the internet. A space to document my journey, share thoughts, and write about things that fascinates me — from my work to my interests.
         </p>
         <Link 
