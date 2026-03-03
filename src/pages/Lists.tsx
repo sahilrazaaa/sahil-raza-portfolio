@@ -4,7 +4,7 @@ import { ChevronDown, ExternalLink } from 'lucide-react';
 
 const lists = [
   {
-    title: "Films (redirects to Letterboxd)",
+    title: "Film Diary (redirects to Letterboxd)",
     href: "https://letterboxd.com/sahilrazaa/",
     isExternal: true,
   },

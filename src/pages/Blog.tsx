@@ -8,7 +8,7 @@ interface BlogPost {
   title: string;
   slug: { current: string };
   publishedAt: string;
-  category: string;
+  category: { title: string; slug: { current: string } } | null;
   excerpt: string;
 }
 
@@ -31,7 +31,7 @@ export function Blog() {
       title,
       slug,
       publishedAt,
-      category,
+      category-> { title, slug },
       excerpt
     }`;
 
@@ -89,7 +89,7 @@ export function Blog() {
                 {post.category && (
                   <>
                     <span className="w-1 h-1 rounded-full bg-white/20"></span>
-                    <span className="font-mono text-xs tracking-widest text-white/60 uppercase">{post.category}</span>
+                    <span className="font-mono text-xs tracking-widest text-white/60 uppercase">{post.category.title}</span>
                   </>
                 )}
               </div>
