@@ -21,11 +21,10 @@ const lists = [
   {
     title: "Favorite Films",
     items: [
-      "2001: A Space Odyssey (1968)",
-      "Blade Runner 2049 (2017)",
-      "Interstellar (2014)",
-      "The Matrix (1999)",
-      "Arrival (2016)",
+      "12 Angry Men (1957)",
+      "Schindler's List (1993)",
+      "Tees Maar Khan (2010)",
+      "Pyaasa (1957)",
     ],
   },
   {
