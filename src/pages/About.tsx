@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Mail } from 'lucide-react';
+import { Mail, Globe, Feather, Cpu } from 'lucide-react';
 
 export function About() {
   return (
@@ -28,24 +28,25 @@ export function About() {
         </p>
       </section>
 
-      <section className="space-y-12 pt-16 border-t border-white/[0.08]">
-        <h2 className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase">My Interests</h2>
+      <section className="space-y-10 pt-16 border-t border-white/[0.08]">
+        <p className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase">My Interests</p>
         
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-4xl">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl">
           {[
-            { title: 'Technology', desc: 'Interested in distributed systems, AI, high-performance computing, and the future of human-computer interaction.' },
-            { title: 'Philosophy', desc: 'Fascinated by epistemology, philosophy of mind, ethics of technology, and frameworks for understanding consciousness.' },
-            { title: 'Art & Culture', desc: 'Seeking beauty in all its forms — literature, visual arts, and understanding different cultural narratives.' },
+            { icon: Globe, title: 'Social Sciences', desc: 'Researching and exploring discourses on political theory, public policy, historical events, and cultural narratives. My academic work centres on governance, historical inquiry, and how these fields intersect with contemporary political challenges.' },
+            { icon: Feather, title: 'Writing', desc: 'I write about politics, history, and culture. I also enjoy documenting my thoughts and experiences through essays and reflections. Penning Hindustani poetry is a passion of mine, and this site serves as a digital garden for my evolving work.' },
+            { icon: Cpu, title: 'Tech', desc: 'I am interested in the adoption strategies and philosophical dimensions of artificial intelligence, and the future of human-computer interaction. I also employ my technical skills to create digital tools and projects.' },
           ].map((item, i) => (
             <motion.div
               key={item.title}
-              initial={{ opacity: 0, y: 12 }}
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: i * 0.1, duration: 0.5 }}
-              className="space-y-4"
+              transition={{ delay: 0.2 + i * 0.08, duration: 0.5 }}
+              className="group p-6 border border-white/[0.06] hover:border-white/15 rounded-sm transition-all duration-300 hover:bg-white/[0.02]"
             >
-              <h3 className="font-serif text-2xl italic text-white/95">{item.title}</h3>
-              <p className="text-sm text-white/55 leading-relaxed font-light">
+              <item.icon className="w-7 h-7 text-white/50 group-hover:text-white/80 mb-4 transition-colors" strokeWidth={1.25} />
+              <h3 className="font-serif text-xl italic text-white/90 mb-2">{item.title}</h3>
+              <p className="text-sm text-white/50 font-light leading-relaxed">
                 {item.desc}
               </p>
             </motion.div>

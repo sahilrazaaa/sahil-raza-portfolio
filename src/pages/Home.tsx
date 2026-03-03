@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
-import { ArrowRight, Globe, Feather, Palette } from 'lucide-react';
+import { ArrowRight, Globe, Feather, Cpu } from 'lucide-react';
 
 export function Home() {
   return (
@@ -18,7 +18,7 @@ export function Home() {
         </h1>
         <p className="font-mono text-xs tracking-[0.3em] text-white/40 uppercase pt-8">I work on</p>
         <h2 className="font-serif text-4xl md:text-5xl lg:text-6xl font-light tracking-tight text-white/95 italic">
-          Social Sciences, Art, and Technology.
+          Political Science, History, and Culture.
         </h2>
       </motion.div>
 
@@ -49,9 +49,9 @@ export function Home() {
         <p className="font-mono text-xs tracking-[0.2em] text-white/40 uppercase">My Interests</p>
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {[
-            { icon: Globe, title: 'Social Sciences', desc: ' Researching and writing about social sciences.' },
-            { icon: Feather, title: 'Writing', desc: 'Crafting prose and documenting experiences through essays and reflections.' },
-            { icon: Palette, title: 'Art & Culture', desc: 'Seeking beauty in forms — visual arts, design, and cultural narratives.' },
+            { icon: Globe, title: 'Social Sciences', desc: 'Researching and exploring discourses on political theory, public policy, historical events, and cultural narratives.' },
+            { icon: Feather, title: 'Writing', desc: 'I write about politics, history, and culture. I also enjoy documenting my thoughts and experiences through essays and reflections. Penning Hindustani poetry is a passion of mine.' },
+            { icon: Cpu, title: 'Tech', desc: 'I am interested in the adoption strategies and philosophical dimensions of artificial intelligence, and the future of human-computer interaction. I also employ my technical skills to create digital tools and projects.' },
           ].map((item, i) => (
             <motion.div
               key={item.title}
