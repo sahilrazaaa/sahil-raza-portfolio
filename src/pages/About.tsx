@@ -13,13 +13,15 @@ export function About() {
       <section className="space-y-8 text-lg font-light leading-[1.8] text-white/80 max-w-2xl">
         <p>
           <span className="font-serif text-3xl italic mr-2 text-white">Hi! I'm Sahil Raza.</span>
-          I am a technologist, writer, and lifelong learner exploring the intersections of computer science, philosophy, and human experience.
+          I am Sahil Raza, an undergraduate student of Political Science at the University of Delhi, with a minor in History. My academic interests lie in political theory, governance, and historical inquiry, and I am currently 
+          preparing for the UPSC CSE with the goal of entering public service.
         </p>
         <p>
-          My work involves building scalable software systems, understanding complex data structures, and exploring the philosophical implications of artificial intelligence and modern technology.
+        I read and reflect on culture, history, politics, and philosophy, and follow developments in artificial intelligence with particular interest in its philosophical dimensions.
         </p>
         <p>
-          When I'm not coding or reading, I enjoy traveling to places with rich history, exploring different forms of art, and writing about my experiences and thoughts.
+          When I'm not studying or reflecting, I listen to music, play the guitar, watch films, write Hindustani poetry, and enjoy collecting lesser-known trivia across disciplines.
+          This space serves as a digital garden for my evolving thoughts, journals, and projects. Welcome to my corner of the internet!
         </p>
         <p className="text-white/60">
           — <a href="mailto:sahilraza132@gmail.com" className="text-white/80 hover:text-white underline underline-offset-4 transition-colors">Click here to reach out</a>, or keep scrolling for more.

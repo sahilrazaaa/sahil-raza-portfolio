@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { NavLink, Outlet, useLocation } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ExternalLink } from 'lucide-react';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
 
@@ -10,6 +10,7 @@ const navItems = [
   { id: '02', label: 'About', path: '/about' },
   { id: '03', label: 'Blog', path: '/blog' },
   { id: '04', label: 'List of Lists', path: '/lists' },
+  { id: '05', label: 'Madhyama', href: 'https://madhyama.substack.com', external: true },
 ];
 
 export function Layout() {
@@ -46,21 +47,37 @@ export function Layout() {
             className="fixed inset-0 top-[73px] bg-[#050505] z-40 md:hidden overflow-y-auto"
           >
             <nav className="flex flex-col p-8 space-y-6">
-              {navItems.map((item) => (
-                <NavLink
-                  key={item.id}
-                  to={item.path}
-                  className={({ isActive }) => twMerge(
-                    "group flex items-baseline space-x-4 text-2xl font-light transition-colors",
-                    isActive ? "text-white" : "text-white/50 hover:text-white/80"
-                  )}
-                >
-                  <span className="font-mono text-sm tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
-                    {item.id}
-                  </span>
-                  <span className="font-serif italic tracking-wide">{item.label}</span>
-                </NavLink>
-              ))}
+              {navItems.map((item) =>
+                item.external ? (
+                  <a
+                    key={item.id}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-baseline space-x-4 text-2xl font-light transition-colors text-white/50 hover:text-white/80"
+                  >
+                    <span className="font-mono text-sm tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
+                      {item.id}
+                    </span>
+                    <span className="font-serif italic tracking-wide">{item.label}</span>
+                    <ExternalLink size={16} className="opacity-50" />
+                  </a>
+                ) : (
+                  <NavLink
+                    key={item.id}
+                    to={item.path}
+                    className={({ isActive }) => twMerge(
+                      "group flex items-baseline space-x-4 text-2xl font-light transition-colors",
+                      isActive ? "text-white" : "text-white/50 hover:text-white/80"
+                    )}
+                  >
+                    <span className="font-mono text-sm tracking-widest opacity-50 group-hover:opacity-100 transition-opacity">
+                      {item.id}
+                    </span>
+                    <span className="font-serif italic tracking-wide">{item.label}</span>
+                  </NavLink>
+                )
+              )}
             </nav>
           </motion.div>
         )}
@@ -74,30 +91,46 @@ export function Layout() {
           </NavLink>
           
           <nav className="flex flex-col space-y-5">
-            {navItems.map((item) => (
-              <NavLink
-                key={item.id}
-                to={item.path}
-                className={({ isActive }) => twMerge(
-                  "group flex items-baseline space-x-4 text-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm",
-                  isActive ? "text-white" : "text-white/50 hover:text-white/80"
-                )}
-              >
-                {({ isActive }) => (
-                  <>
-                    <span className="font-mono text-xs tracking-widest text-white/30 group-hover:text-white/60 transition-colors">
-                      {item.id}
-                    </span>
-                    <span className={twMerge(
-                      "font-serif italic tracking-wide nav-link-hover",
-                      isActive && "active"
-                    )}>
-                      {item.label}
-                    </span>
-                  </>
-                )}
-              </NavLink>
-            ))}
+            {navItems.map((item) =>
+              item.external ? (
+                <a
+                  key={item.id}
+                  href={item.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-baseline space-x-4 text-lg transition-colors duration-200 text-white/50 hover:text-white/80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm"
+                >
+                  <span className="font-mono text-xs tracking-widest text-white/30 group-hover:text-white/60 transition-colors">
+                    {item.id}
+                  </span>
+                  <span className="font-serif italic tracking-wide nav-link-hover">{item.label}</span>
+                  <ExternalLink size={14} className="opacity-50" />
+                </a>
+              ) : (
+                <NavLink
+                  key={item.id}
+                  to={item.path}
+                  className={({ isActive }) => twMerge(
+                    "group flex items-baseline space-x-4 text-lg transition-colors duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/30 focus-visible:ring-offset-2 focus-visible:ring-offset-[#050505] rounded-sm",
+                    isActive ? "text-white" : "text-white/50 hover:text-white/80"
+                  )}
+                >
+                  {({ isActive }) => (
+                    <>
+                      <span className="font-mono text-xs tracking-widest text-white/30 group-hover:text-white/60 transition-colors">
+                        {item.id}
+                      </span>
+                      <span className={twMerge(
+                        "font-serif italic tracking-wide nav-link-hover",
+                        isActive && "active"
+                      )}>
+                        {item.label}
+                      </span>
+                    </>
+                  )}
+                </NavLink>
+              )
+            )}
           </nav>
         </div>
         
